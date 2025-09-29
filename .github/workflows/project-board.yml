@@ -1,0 +1,57 @@
+name: Project Board Automation
+
+on:
+  issues:
+    types: [opened, reopened, closed]
+  pull_request:
+    types: [opened, ready_for_review, closed]
+
+jobs:
+  manage-project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Move issue to Todo when opened
+        if: github.event_name == 'issues' && github.event.action == 'opened'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const project_number = 1; // Project 번호
+            const column_name = "📥 Todo";
+            const { data: projects } = await github.projects.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            const project = projects.find(p => p.number === project_number);
+            const { data: columns } = await github.projects.listColumns({
+              project_id: project.id
+            });
+            const column = columns.find(c => c.name === column_name);
+            await github.projects.createCard({
+              column_id: column.id,
+              content_id: context.payload.issue.id,
+              content_type: "Issue"
+            });
+
+      - name: Move issue to Done when closed
+        if: github.event_name == 'issues' && github.event.action == 'closed'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const project_number = 1;
+            const column_name = "✅ Done";
+            const { data: projects } = await github.projects.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            });
+            const project = projects.find(p => p.number === project_number);
+            const { data: columns } = await github.projects.listColumns({
+              project_id: project.id
+            });
+            const column = columns.find(c => c.name === column_name);
+            await github.projects.createCard({
+              column_id: column.id,
+              content_id: context.payload.issue.id,
+              content_type: "Issue"
+            });
