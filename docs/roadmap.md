@@ -181,22 +181,6 @@ Core/내부 동작 → 성능 최적화 → 플랫폼 통합 → 아키텍처 & 
 
 ---
 
-## 🏃 학습 루프
-
-### 주간 루프
-1. **Input** (Mon–Tue) → 문서/책/강의/리소스 학습
-2. **Experiment** (Wed–Thu) → 실습 과제 & 변형 실험
-3. **Commit** (Fri) → 코드 & 기록을 Repo에 업로드
-4. **Output** (Weekend) → 블로그/노션에 아키텍처 노트 작성
-5. **Review** → Milestone 진행 상황 점검 및 회고
-
-### 병행 학습 전략
-- **이론 + 실습 병행**: 문서를 읽으면서 동시에 작은 실습 진행
-- **플랫폼 교차 학습**: iOS 개념 학습 후 Android의 유사 개념 비교
-- **점진적 심화**: 기초 → 중급 → 심화 순서로 단계별 진행
-
----
-
 ## 📊 관리 규칙
 
 ### GitHub 구조
@@ -217,14 +201,14 @@ Core/내부 동작 → 성능 최적화 → 플랫폼 통합 → 아키텍처 & 
 
 ---
 
-## 🎓 최종 도달 목표
+## 각 영역
 
-### RN 전문가
+### RN
 - New Architecture 내부 동작을 코드 레벨로 이해
 - JSI, TurboModules, Fabric Renderer, Hermes 엔진 심층 이해
 - RN 성능 최적화 및 메모리 관리 전문성
 
-### 플랫폼 기술리드
+### 플랫폼
 **iOS:**
 - RunLoop, ARC, GCD/OperationQueue
 - Swift Concurrency (async/await, Actor, AsyncSequence)
@@ -237,14 +221,14 @@ Core/내부 동작 → 성능 최적화 → 플랫폼 통합 → 아키텍처 & 
 - 이미지 렌더링 파이프라인 (BitmapFactory, Glide)
 - Background Job, Push, Widget 구현
 
-### 아키텍처 매니저
+### 아키텍처
 - 성능·메모리·빌드 파이프라인 최적화 리드
 - 네이티브 확장 전략 설계 및 구현
 - Monorepo, Design System, DDD 아키텍처 구축
 - CI/CD, 테스트 전략, 품질 관리 시스템 구축
 - 팀 단위 기술 리더십 및 코드 리뷰 프로세스 확립
 
-### 실전 적용 역량
+### 실전 적용
 - Background job, Notification, Widget, Lock Screen 통합
 - 이미지 렌더링/메모리 관리 최적화
 - 동시성 프로그래밍을 활용한 안정적인 RN 앱 구축
